@@ -23,62 +23,87 @@
     <main>
         <h1>Réservation</h1>
         <form id="reservation-form" action="reservation.html">
-            <div class="form-section">
-                <h2>1. Vérifier la disponibilité</h2>
-                <label for="date-arrivee">Date d'arrivée :</label>
-                <input type="date" id="date-arrivee" name="date-arrivee">
+          
+            <fieldset class="form-section">
+                <legend><h2>1. Vérifier la disponibilité</h2></legend>
+                    <label for="date-arrivee">Date d'arrivée :</label>
+                    <input type="date" id="date-arrivee" name="date-arrivee">
+    
+                    <label for="date-depart">Date de départ :</label>
+                    <input type="date" id="date-depart" name="date-depart">
+    
+                    <button type="button" id="check-availability-button">Vérifier la disponibilité</button>
+                    <p id="availability-message"></p>
+            </fieldset>
+            
+         
+            <fieldset class="form-section">
+                <legend><h2>2. Nombre de personnes </h2> </legend>
+                    <label for="adultes">Adultes (maximum 4):</label>
+                    <input id="adultes" name="adultes" type="number">
+    
+                    <label for="enfants">Enfants (maximum 5):</label>
+                    <input id="enfants" name="enfants" type="number">
+    
+                    <p>
+                        Notes: <br>
+                        1. la chambre familiale peut loger jusqu'à 6 personnes<br>
+                        2. si vous avez besoin de louer plusieurs chambres, <a href="">contactez-nous directement</a>
+                    </p>
+            </fieldset>
+           
+            
+            <fieldset class="form-section">
+                <legend><h2>3. Choix chambre et forfait </h2></legend>
 
-                <label for="date-depart">Date de départ :</label>
-                <input type="date" id="date-depart" name="date-depart">
-
-                <button type="button" id="check-availability-button">Vérifier la disponibilité</button>
-                <p id="availability-message"></p>
-            </div>
-
-            <div class="form-section">
-                <h2>2. Nombre de personnes </h2>
-                <label>Adultes (maximum 4):</label>
-                <input id="adultes" name="adultes">
-
-                <label>Enfants (maximum 5):</label>
-                <input id="enfants" name="enfants">
-
-                <p>
-                    Notes: <br>
-                    1. la chambre familiale peut loger jusqu'à 6 personnes<br>
-                    2. si vous avez besoin de louer plusieurs chambres, <a href="">contactez-nous directement</a>
-                </p>
-            </div>
-
-            <div class="form-section">
-                <h2>3. Choix chambre et forfait </h2>
-
-                <!-- Trois boutons radio pour le choix du type de chambre simple, double ou familiale 
-                Les boutons doivent être des images cliquables: utiliser images/types-de-chambre -->
-
-                <!-- [case à cocher] Inclure le petit déjeuner s'il-vous-plaît -->
-
-                <p> Le coût du petit déjeûner des adultes est de 25$ CAN, pour les enfants de moins de 12 ans c'est
-                    12.50$
-                    CAN.</p>
-
-            </div>
-
-            <div class="form-section">
-                <h2>4. Identification</h2>
-                <label>Prénom :</label>
-                <input id="prenom" name="prenom">
-
-                <label>Nom :</label>
-                <input id="nom" name="nom">
-
-                <label>Email :</label>
-                <input id="email" name="email">
-
-                <label>Téléphone :</label>
-                <input id="telephone" name="telephone">
-
-            </div>
+                    <!-- Trois boutons radio pour le choix du type de chambre simple, double ou familiale 
+                    Les boutons doivent être des images cliquables: utiliser images/types-de-chambre -->
+    
+                    <!-- [case à cocher] Inclure le petit déjeuner s'il-vous-plaît -->
+                    <ul>
+                        <li>
+                            <label for=""> Chambre simple</label>
+                            <input type="radio" name="Typechambre" id="simple">
+                            <img src="../images/types-de-chambre/1-lit-double.webp" alt="">
+                        </li>
+                        <li>
+                            <label for="">Chambre double</label>
+                            <input type="radio" name="Typechambre" id="double">
+                            <img src="../images/types-de-chambre/2-lits-double.jpg" alt="">
+                        </li>
+                        <li>
+                            <label for="">Chambre familiale</label>
+                            <input type="radio" name="Typechambre" id="familiale">
+                            <img src="../images/types-de-chambre/chambre-familiale.jpg" alt="">
+                        </li>
+                    </ul>
+                    
+                    
+                    
+    
+                    <p> Le coût du petit déjeûner des adultes est de 25$ CAN, pour les enfants de moins de 12 ans c'est
+                        12.50$
+                        CAN.
+                    </p>
+            </fieldset>
+            
+            
+            <fieldset class="form-section">
+                <legend><h2>4. Identification</h2></legend>
+                    <label for="prenom">Prénom :</label>
+                    <input id="prenom" name="prenom" type="text">
+    
+                    <label for="nom">Nom :</label>
+                    <input id="nom" name="nom" type="text">
+    
+                    <label for="email">Email :</label>
+                    <input id="email" name="email" type="email">
+    
+                    <label for="telephone">Téléphone :</label>
+                    <input id="telephone" name="telephone" type="tel">
+            </fieldset>
+   
+            
 
             <p><button type="submit">Confirmer la réservation</button></p>
         </form>
