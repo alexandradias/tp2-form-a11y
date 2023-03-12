@@ -1,18 +1,20 @@
 @charset "UTF-8";
 
+/* Importation des polices au tout début! */
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Raleway:wght@300;400;700&display=swap');
+
 /**
  * TABLE DES MATIERES
+ * @author DIAS DA ROCHA Alexandra - @TIMCSF
  *
  * Normalize (au lieu du reset)
  * Utilitaires
- * Grille 12 colonnes
+ * Typo
+ * Composants menu
  * Styles de base
- * Boutons radios accessibles
- *** Form
- *** Label des boutons radio
- *** Interactivité
- *** Erreurs
  */
+ 
+
 
 /* Normalize (reset qui harmonise le rendu des éléments de formulaire)
    ========================================================================== */
@@ -26,24 +28,38 @@
    ========================================================================== */
 @import url(typo.css);
 
+/* Composants Menu
+========================================================================== */
+@import url(composants/menu.css);
+
 /* Styles de base
    ========================================================================== */
+body{
+    font-family: var(--police);
+    min-height: 100vh;
+    color: grey;
+    scroll-behavior: smooth;
+}
+
 ul.rangee {
     list-style: none;
     padding-left: 0;
 }
 
-.produit {
-    display: block;
-    /* pour placer le nom du café en dessous de son image */
+.chambre {
+    display: flex;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* font-weight: 500; */
+    letter-spacing: 2px;
+}
+ 
+aside{
+    width: 90%;
+    margin: 0 auto;
 }
 
-fieldset {
-    padding: 0;
-    border: none;
-}
-
-legend {}
 
 /* Mise en forme */
 @media (min-width:600px) {
@@ -84,40 +100,59 @@ input[type=tel] {
 le fait que le label est consécutif
 au input (cas des boutons radio et des cases à cocher)
  */
-/* input[type=radio]+label {
+input[type=radio]+label {
     display: inline-block;
     text-align: center;
     border: 2px solid transparent;
-} */
+}
 
 /*** Interactivité ***/
-/* [type=radio]:hover+label {
+[type=radio]:hover+label {
     cursor: pointer;
 }
 
 [type=radio]:hover+label,
 [type=radio]:focus+label {
-    border: 2px solid #09c231;
+    border: 5px solid #06e6ea;
 }
 
 [type=radio]:checked+label {
-    border: 2px solid #068221;
-} */
+    border: 5px solid #06e6ea;
+}
 
 /*** Bouton de soumission ***/
-/* button {
+button {
     padding: 0.5rem;
-    background-color: #d6dfcf;
+    background-color: rgb(35, 101, 94);
 }
 
 button:hover,
 button:focus {
-    background-color: #dfce99;
-} */
+    background-color: rgb(35, 101, 94);
+}
+
+/*** Focus ***/
+input:focus,
+textarea:focus,
+keygen:focus,
+select:focus {
+    outline-offset: 3px;
+}
+
+:focus {
+    /* outline: 5px auto purple; */
+    outline: none;
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+}
+
+button:focus {
+    box-shadow: var(--bouton-box-shadow);
+}
 
 /*** Erreurs ***/
 .erreur {
-    color: orangered;
+    /* color: orangered; */
+    display: none;
 }
 
 .icone {
@@ -144,9 +179,9 @@ button:focus {
 
 /* Main */
 main{
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
-    border:solid red 2px;
+    /* border:solid red 2px; */
 }
 @media (min-width:700px){
     main{
@@ -154,26 +189,122 @@ main{
     }
 }
 
+header{
+    background-color: black;
+}
+
+header a{
+    text-decoration: none;
+}
+
+.header__top{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.header__top--image{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.header__top--image img{
+    width: 100%;
+}
+
+.header__top--nom p{
+    font-family: var(--police-titre);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    text-align: right;
+}
+
 .reservation__titre{
     text-transform: uppercase;
     font-size: 3rem;
+    color : var(--police-color-titre)
+}
+
+/* Blockquote */
+blockquote{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Carrousel */
+.carrousel {
+    position: relative;
+}
+
+.js .carrousel__slide {
+    display: none;
+}
+
+.js .carrousel__slide.carrousel__slide--active {
+    display: block;
+}
+
+.carrousel__liste{
+    margin: 0;
+    padding: 0;
+}
+
+.carrousel__liste figure{
+    margin: 0;
+}
+
+.controls{
+    text-align: center;
+    padding: 0;
 }
 
 /* Formulaire */
+form{
+    width: 100%;
+}
 
 .form-section{
     display: flex;
-    /* justify-content: space-around; */
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     flex-direction: column;
 }
 
-.form-section fieldset:nth-child(1n + 1){
-    border:solid blue 3px;
+.form-section p{
+    width: 90%;
+    margin: 0 auto;
+} 
+
+.form-section p select{
     width: 100%;
-    justify-content: space-between;
+    padding: 20px 0;
+    margin: 10px 0 0 0;
+}
+
+/* .form-section p label{
+    margin: 20px 0 0 0;
+} */
+
+.form-section ul{
+    /* padding: 5px;
+    margin: 20px 0; */
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.form-section ul li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.form-section fieldset:nth-child(1n + 1){
+    width: 100%;
+    align-items: center;
     display: flex;
     margin: 20px 0;
 }
@@ -184,9 +315,12 @@ main{
 }
 
 .form-section fieldset select:nth-child(1n + 1){
-    width: 30%;
     justify-content: space-around;
     display: flex;
+}
+
+.form-section .form__nb--personne{
+    margin: 20px;
 }
 
 
@@ -203,25 +337,118 @@ main{
     }
 }
 
-.form__titre h2{
-    font-size: 2rem;
+.form__disponibilite--boutonValid button{
+    /* border-radius: 30px solid red; */
+    background-color: rgb(35, 101, 94);
+    color: white;
     text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
 }
 
-.form__titre h3{
+.form__disponibilite--boutonValid button:active,
+.form__disponibilite--boutonValid button:visited{
+    /* border-radius: 30px solid red; */
+    background-color: rgb(143, 120, 30);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+.form__disponibilite--boutonValid button:focus{
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+    background-color: rgb(143, 120, 30);
+    color: white;
+  
+    
+}
+
+
+fieldset legend h2{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:rgb(35, 101, 94);
+    text-decoration: none;
+}
+
+fieldset legend h3{
     font-size: 1.5rem;
     text-transform: uppercase;
+    color: grey;
+    text-decoration: none;
 }
 
 .form__date{
-   
-    border:solid red 2px;
+    flex-direction: column; 
+}
+
+form a{
+    text-decoration: none;
+    color: grey;
 }
 
 .form__date select{
-   
-    border: solid green 2px;
+    width: 90%;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(35, 101, 94, 0.1);
 }
+
+/* Base formulaire Réservation */
+
+fieldset fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+a fieldset{
+    text-decoration: none;
+}
+
+fieldset {
+    border: 1px solid rgb(35, 101, 94);
+    padding: 0;
+    margin: 30px 0;
+    text-decoration: none;
+}
+
+legend {
+    padding: 0 0.5rem;
+}
+
+fieldset fieldset legend {
+    padding: 0.5rem;
+}
+
+fieldset h2 {
+    margin: 0;
+}
+
+select {
+    border-radius: 5px;
+    margin: 0 0.25rem
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--couleur-bouton-hover);
+    box-shadow: var(--bouton-box-shadow);
+}
+
 
 /* Choix de chambres */
 .form__choixChambres ul li{
@@ -237,7 +464,7 @@ main{
 
 .form__choixChambres ul li label{
     width: 100%;
-    border: solid red 2px;
+    /* border: solid red 2px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,10 +476,6 @@ main{
         max-width: 200px;
         max-height: 200px;
     }
-}
-
-.form__choixChambres ul li label img{
-    max-height: 150px;
 }
 
 .form__choixChambres ul{
@@ -269,7 +492,20 @@ main{
     }
 }
 
+/* Chambres */
 
+.form__figure--image{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form__figure--image img{
+    width: 100%;
+}
+
+.form__li{
+    margin: 20px 0;
+}
 
 /* Identifications */
 
@@ -287,12 +523,43 @@ main{
     }
 }
 
+.form__identification--item label{
+    text-transform: uppercase;
+    color: grey;
+    margin: 10px 0;
+}
+
+.form__identification--item input{
+    padding: 20px 5px;
+    margin: 0 0 20px 0;
+}
+
 .form__documentation--accept{
     display: flex;
     align-items: center;
+    font-size: 1.3rem;
+}
+
+.form__documentation--accept input{
+    margin-right: 10px;
 }
 
 .form__dejeuner--accept{
     display: flex;
     align-items: center;
+    padding: 0 0 20px 0;
+}
+
+.form__confirmation--reservation button{
+    background-color: rgb(35, 101, 94);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+.case-a-cocher input{
+ margin-right: 10px;
 }

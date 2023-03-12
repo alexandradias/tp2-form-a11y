@@ -3,6 +3,13 @@
 
 /****** Variables (peuvent être utilisées dans tous les fichiers) *******/
 :root {
+    scroll-behavior: smooth;
+    --police: 'Raleway', sans-serif;
+    --police-titre: 'Gruppo', cursive;
+    --police-sous-titre: 'Raleway', sans-serif;
+
+    --police-color-titre: rgb(35, 101, 94);
+
     --couleur-texte: #022b50;
     --couleur-titres-h1-h3: darkmagenta;
     --couleur-dominante: darkmagenta;
