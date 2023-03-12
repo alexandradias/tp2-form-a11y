@@ -1,5 +1,6 @@
 # tp2-form-a11y
 Un formulaire de réservation pour l'Auberge du Jacana Africain
+## https://github.com/alexandradias/tp2-form-a11y
 
 # Bilan de controle
 ## Structure, sémantique et validations en html
@@ -57,6 +58,7 @@ Cette balise pattern me permet de spécifier ce qui doit être accepté dans les
 
 **Styler les messages d’erreur. Styler les boutons radio en les gardant accessibles au clavier.**
 * J'ai intégré les messages d'erreur, mais je ne les vois pas fonctionner :/
+je pense qu'il me manque la partie JS pour que celui-ci soit en totalité fonctionnel.
 
 **Organiser et documenter la feuille de styles.**
 * Je pense avoir organisé correctement ma feuille de style, mais j'aurais pu avec plus de temps ajouter de la documentation complémentaire.
@@ -77,7 +79,7 @@ Je n'ai pas oublié d'indiquer le message lié au commit mais je pense que je de
 * J'ai sur la page d'accueil tenté d'intégrer le carrousel en me basant sur notre précédent projet. Faute de temps je n'ai pas pu tout mettre en page.
 
 ## Conclusion
-J'ai trouvé ce projet très enrichissant sur le plan des formulaires, cette partie me semble être très dense, et longue à maitriser, pour répondre en totalité et à 100% à toutes les normes. 
+J'ai trouvé ce projet très enrichissant sur le plan des formulaires, cette partie me semble être très dense et longue à maitriser, pour répondre en totalité et à 100% à toutes les normes. 
 
 J'ai manqué de temps pour faire les choses précisément, et je me sens frustrée de rendre un travail à mon sens pas totalement abouti. J'aurais aimé Eve te rendre un travail en totalité responsive avec les 2 pages bien mise en forme.
 

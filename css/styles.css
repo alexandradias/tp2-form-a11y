@@ -47,24 +47,57 @@ ul.rangee {
 }
 
 .chambre {
-    display: flex;
     color: black;
     text-transform: uppercase;
     text-decoration: none;
-    /* font-weight: 500; */
     letter-spacing: 2px;
 }
+
+/* Aside */
  
 aside{
     width: 90%;
     margin: 0 auto;
 }
 
+aside a{
+    text-decoration: none;
+}
+
+aside h2{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: rgb(35, 101, 94);
+    text-decoration: none;
+}
+
+aside h2:hover{
+    color: #06e6ea;
+}
+
+aside h2:focus{
+    outline: none;
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+}
+
+aside h3 a{
+    color: rgb(35, 101, 94);
+}
+
+aside h3 a:hover{
+    color: #06e6ea;
+}
+
+aside h3 a:focus{
+    outline: none;
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+}
+
+
 
 /* Mise en forme */
 @media (min-width:600px) {
     ul.rangee li {
-        /* flex:0 1 calc(33.333333% - 10px); */
         flex: 0 1 32%;
     }
 
@@ -140,7 +173,6 @@ select:focus {
 }
 
 :focus {
-    /* outline: 5px auto purple; */
     outline: none;
     box-shadow: 2px 2px 1px 1px #06e6ea;
 }
@@ -189,6 +221,7 @@ main{
     }
 }
 
+/* Header */
 header{
     background-color: black;
 }
@@ -246,6 +279,7 @@ header a{
     color: white;
 }
 
+/* Réservation */
 .reservation__titre{
     text-transform: uppercase;
     font-size: 3rem;
@@ -302,23 +336,31 @@ form{
     width: 90%;
     margin: 0 auto;
 } 
+@media (min-width:700px){
+    .form-section p{
+        width: 80%;
+    }
+}
+
 
 .form-section p select{
     width: 100%;
-    padding: 20px 0;
+    padding: 20px;
     margin: 10px 0 0 0;
+    text-align: center;
+    font-size: 2rem;
 }
 
-/* .form-section p label{
-    margin: 20px 0 0 0;
-} */
-
 .form-section ul{
-    /* padding: 5px;
-    margin: 20px 0; */
     width: 90%;
     margin: 0 auto;
     padding: 20px 0;
+}
+@media (min-width:700px){
+    .form-section ul{
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 .form-section ul li{
@@ -334,7 +376,7 @@ form{
 }
 @media (min-width:700px){
     .form-section fieldset:nth-child(1n + 1){
-        width: 40%;
+        width: 100%;
     }
 }
 
@@ -345,6 +387,12 @@ form{
 
 .form-section .form__nb--personne{
     margin: 20px;
+}
+@media (min-width:700px){
+    .form-section .form__nb--personne{
+        margin: 0 auto;
+        padding: 20px 0;
+    }
 }
 
 
@@ -358,23 +406,32 @@ form{
     .form__disponibilite--items{
         flex-direction: row;
         width: 80%;
+        margin: 0 auto;
     }
 }
 
 .form__disponibilite--boutonValid button{
-    /* border-radius: 30px solid red; */
     background-color: rgb(35, 101, 94);
     color: white;
     text-transform: uppercase;
     font-size: 1.5rem;
     width: 100%;
-    margin: 30px 0;
+    margin:15px 0;
+    padding: 10px;
+}
+
+.form__disponibilite--boutonValid button:hover{
+    background-color:greenyellow;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
+    margin:15px 0;
     padding: 10px;
 }
 
 .form__disponibilite--boutonValid button:active,
 .form__disponibilite--boutonValid button:visited{
-    /* border-radius: 30px solid red; */
     background-color: rgb(143, 120, 30);
     color: white;
     text-transform: uppercase;
@@ -388,8 +445,6 @@ form{
     box-shadow: 2px 2px 1px 1px #06e6ea;
     background-color: rgb(143, 120, 30);
     color: white;
-  
-    
 }
 
 
@@ -469,7 +524,7 @@ button {
 }
 
 form button:hover {
-    background-color: var(--couleur-bouton-hover);
+    background-color:greenyellow;
     box-shadow: var(--bouton-box-shadow);
 }
 
@@ -488,7 +543,6 @@ form button:hover {
 
 .form__choixChambres ul li label{
     width: 100%;
-    /* border: solid red 2px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -512,7 +566,8 @@ form button:hover {
 }
 @media (min-width:700px){
     .form__choixChambres ul{
-        width: 80%;
+        flex-direction: row;
+        justify-content: space-around;
     }
 }
 
@@ -525,11 +580,32 @@ form button:hover {
 
 .form__figure--image img{
     width: 100%;
+    filter: grayscale();
 }
 
-.form__li{
+
+.form__li {
     margin: 20px 0;
 }
+
+.form__li [type="radio"]+label {
+    display: block;
+    padding: 1rem;
+}
+
+.form__li [type="radio"]:focus+label,
+.form__li [type="radio"]:checked+label {
+    background-color:white;
+    font-weight: bold;
+}
+
+.form__li [type="radio"]:focus+label img,
+.form__li [type="radio"]:checked+label img,
+.form__li [type="radio"]:hover+label img {
+    filter: none;
+}
+
+
 
 /* Identifications */
 
@@ -580,10 +656,63 @@ form button:hover {
     text-transform: uppercase;
     font-size: 1.5rem;
     width: 100%;
+    margin:15px 0;
+    padding: 10px;
+}
+
+.form__confirmation--reservation button:hover{
+    background-color:greenyellow;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
+    margin:15px 0;
+    padding: 10px;
+}
+
+.form__confirmation--reservation button:active,
+.form__confirmation--reservation button:visited{
+    background-color: rgb(143, 120, 30);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    width: 100%;
     margin: 30px 0;
     padding: 10px;
 }
 
-.case-a-cocher input{
- margin-right: 10px;
+.form__confirmation--reservation button:focus{
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+    background-color: rgb(143, 120, 30);
+    color: white;
+}
+
+
+/* Case à cocher */
+
+.case-a-cocher [type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    background-color: rgba(185, 221, 207, 0.3);
+    padding: 20px 0;
+}
+
+footer p{
+    width: 90%;
+    margin: 0 auto;
+}
+
+footer a:active,
+footer a:visited,
+footer a:hover{
+    color: rgb(35, 101, 94);
+}
+
+footer a:focus{
+    outline: none;
+    box-shadow: 2px 2px 1px 1px #06e6ea
 }
