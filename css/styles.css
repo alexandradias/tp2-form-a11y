@@ -203,10 +203,20 @@ header a{
     width: 100%;
     padding: 20px;
 }
+@media screen and (min-width: 600px) {
+    .header__top{
+        flex-direction: column;
+    }
+}
 
 .header__top--image{
     width: 50%;
     margin: 0 auto;
+}
+@media screen and (min-width: 600px) {
+    .header__top--image{
+        width: 10%;
+    }
 }
 
 .header__top--image img{
@@ -220,6 +230,20 @@ header a{
     color: white;
     text-decoration: none;
     text-align: right;
+}
+
+.header__top--nom p:hover{
+    color: rgb(35, 101, 94);
+}
+
+.header__top--nom p:focus{
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+    color: white;
+}
+
+.header__top--nom:focus{
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+    color: white;
 }
 
 .reservation__titre{

@@ -34,6 +34,8 @@
 }
 
 .nav__control:focus {
+    box-shadow: 2px 2px 1px 1px #06e6ea;
+    color: white;
     /* En mettant la règle outline: none;, les styles du navigateur
      * pour les éléments en cours de focus sont effacés. Il faut alors
      * les remplacer par d'autres styles qui peuvent être plus
