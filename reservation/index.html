@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Réservation | Auberge du jacana africain</title>
-
+    <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
 
 </head>
@@ -346,7 +346,7 @@
                     <div class="ctnValidation"> 
                         <p class="form__identification--item">
                             <label for="prenom">Prénom :</label>
-                            <input id="prenom" name="prenom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
+                            <input id="prenom" name="prenom" type="text" required pattern="[a-zA-ZÀ-ÿ '\-]+">
                         </p>
                         <p class="erreur">
                             <span>
@@ -360,7 +360,7 @@
                     <div class="ctnValidation">
                         <p class="form__identification--item">
                             <label for="nom">Nom :</label>
-                            <input id="nom" name="nom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
+                            <input id="nom" name="nom" type="text" required pattern="[a-zA-ZÀ-ÿ '\-]+">
                         </p>
                         <p class="erreur">
                             <span>
