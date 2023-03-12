@@ -716,3 +716,44 @@ footer a:focus{
     outline: none;
     box-shadow: 2px 2px 1px 1px #06e6ea
 }
+
+/* ------------------------------------------- SPRITE */
+
+.menu-sociaux {
+    /* margin: 1rem 3rem 3rem 3rem; */
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+  }
+
+/* .menu-sociaux li a{
+  width: 30px;
+} */
+
+.menu-sociaux__lien:link,
+.menu-sociaux__lien:visited{
+  font-size: 0; /* fait disparaître le texte du lien */
+  display: block; /* permet de donner une dimension au lien */
+  width: 50px; /* largeur de l'image */
+  height: 50px; /* hauteur de l'image */
+  margin-right: 1rem; /* espace entre les liens */
+  background-image: url("../images/reseaux/icones-social-sprite.png");
+  background-repeat: no-repeat;
+  transition: transform .3s ease-in-out;
+}
+/* ajoutez le code ici pour compléter la mise en forme des liens au repos : faites afficher les bonnes vignettes */
+.menu-sociaux__item:nth-child(1) .menu-sociaux__lien{
+  background-position: 0 0;
+}
+.menu-sociaux__item:nth-child(2) .menu-sociaux__lien{
+  background-position: -52.5px 0;
+}
+
+/* effet au survol */
+.menu-sociaux__item .menu-sociaux__lien:hover, 
+.menu-sociaux__item .menu-sociaux__lien:active {
+    background-position-y: -55px; 
+    transform: rotate(10deg);
+}
