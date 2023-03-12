@@ -13,20 +13,56 @@
 </head>
 
 <body>
-    <header>
+    <a href="#contenuReservation" class="screen-reader-only focusable"> Allez au contenu</a>
+    <noscript>
+        <!-- élément d'ancre qui mène à un fichier externe  -->
+        Pour pouvoir utiliser notre site web en affichage standard, vous devez activer JavaScript. 
+        Apparemment, JavaScript est désactivé ou incompatible avec votre navigateur. 
+        Pour utiliser l'affichage standard, activez JavaScript en modifiant les options du navigateur, puis réessayez.
+        <a href="">Lien externe</a>
+    </noscript>
+
+    <!-- HEADER -->
+    <header role="banner">
+        
         <a href="../index.html">
-            <p><img src="../images/logo-jacana.png" alt=""></p>
-            <p class="titre">Auberge du jacana africain</p>
+            <div class="header__top">
+                <div class="header__top--image">
+                    <img src="../images/logo-jacana.png" alt="">
+                </div>
+                <div class="header__top--nom">
+                    <p>Auberge du jacana africain</p>
+                </div>
+            </div>
         </a>
-        <!-- Ajouter un menu : Accueil, Historique, Région, Contact, Réservation -->
-        <p> <a href="../index.html">accueil</a> | <a href="index.html">réservation</a>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a href="../index.html" class="nav__link nav__link--active">Accueil</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="#" class="nav__link">Historique</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="#" class="nav__link">Région</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="reservation/index.html" class="nav__link">Réservation</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="#" class="nav__link">Contact</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <h1 class="reservation__titre">Réservation</h1>
+    <!-- MAIN -->
+    <main role="main">
+        <h1 class="reservation__titre" id="contenuReservation">Réservation</h1>
 
-        <form id="reservation-form" action="reservation.html">
-          
+        <form id="reservation-form" action="reservation.html" role="form">
+        <!-- Section pour vérifier la disponibilité -->
             <fieldset class="form-section">
                 <legend class="form__titre">
                     <h2>1. Vérifier la disponibilité</h2>
@@ -154,120 +190,234 @@
                         </select>
                     </fieldset>
                 </div>
+                <p class="form__disponibilite--boutonValid">
                     <button type="button" id="check-availability-button">Vérifier la disponibilité</button>
-                    <p id="availability-message"></p>
+                </p>
+                    
+                <!-- <p id="availability-message"></p> -->
+                <p class="erreur">
+                    <span>
+                        <span class="screen-reader-only">Avertissement</span>
+                        <span class="icone icone--erreur" aria-hidden="true"></span>
+                    </span>
+                    Il n'y a pas de disponibilité à ces dates, merci d'en sélectionner d'autres.
+                </p>
             </fieldset>
             
-         
+        <!-- Section pour choisir le nombre de personnes -->
             <fieldset class="form-section">
+
                 <legend class="form__titre">
                     <h2>2. Nombre de personnes</h2>
                 </legend>
-                <label for="adultes">Adultes (maximum 4):</label>
-                <select name="adultes" id="adultes">
-                    <optgroup label="adultes">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </optgroup>
-                </select>
-
-                <label for="enfants">Enfants (maximum 5):</label>
-                <select name="enfants" id="enfants">
-                    <optgroup label="adultes">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </optgroup>
-                </select>
-
-                <p>
-                    Notes: <br>
-                    1. la chambre familiale peut loger jusqu'à 6 personnes<br>
-                    2. si vous avez besoin de louer plusieurs chambres, <a href="">contactez-nous directement</a>
+                <p class="form__nb--personne">
+                    <label for="adultes">Adultes (maximum 4):</label>
+                    <select name="adultes" id="adultes" required>
+                        <optgroup label="adultes" aria-label="choisir le nombre d'adultes">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </optgroup>
+                    </select>
                 </p>
+                
+                <p class="form__nb--personne">
+                    <label for="enfants">Enfants (maximum 5):</label>
+                    <select name="enfants" id="enfants" required>
+                        <optgroup label="adultes" aria-label="choisir le nombre d'enfant">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </optgroup>
+                    </select>
+                </p>
+                
+                <p>
+                    <ul>
+                        <li>Notes:</li>
+                        <li>1. la chambre familiale peut loger jusqu'à 6 personnes</li>
+                        <li>2. si vous avez besoin de louer plusieurs chambres, <a href="">contactez-nous directement</a</li>
+                    </ul>
+                </p>
+
+                <p class="erreur">
+                    <span>
+                        <span class="screen-reader-only">Avertissement</span>
+                        <span class="icone icone--erreur" aria-hidden="true"></span>
+                    </span>
+                    Merci de renseigner tous les champs.
+                </p>
+
             </fieldset>
-           
             
+            <!-- Section pour choisir le type de chambre et forfait -->   
             <fieldset class="form-section form__choixChambres">
                 <legend class="form__titre">
-                    <h2>3. Choix chambre et forfait </h2>
+                    <h2>3. Choix chambre et forfait</h2>
+                
                 </legend>
 
                     <!-- Trois boutons radio pour le choix du type de chambre simple, double ou familiale 
                     Les boutons doivent être des images cliquables: utiliser images/types-de-chambre -->
     
                     <!-- [case à cocher] Inclure le petit déjeuner s'il-vous-plaît -->
-                    <ul>
-                        <li>
-                            <input type="radio" name="Typechambre" id="simple" value="chambreSimple" class="screen-reader-only" required>
-                            <label for="simple"> 
-                                <img src="../images/types-de-chambre/1-lit-double.webp" alt="">
-                                <span class="produit"> Chambre simple </span>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" name="Typechambre" id="double" value="chambreDouble" class="screen-reader-only">
-                            <label for="double">
-                                <img src="../images/types-de-chambre/2-lits-double.jpg" alt="">
-                                <span class="produit"> Chambre double </span>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" name="Typechambre" id="familiale" value="chambreFamiliale" class="screen-reader-only">
-                            <label for="familiale">
-                                <img src="../images/types-de-chambre/chambre-familiale.jpg" alt="">
-                                <span class="produit"> Chambre familiale </span>
-                            </label>
-                        </li>
-                    </ul>
-                    
-                    <p> Le coût du petit déjeûner des adultes est de 25$ CAN, pour les enfants de moins de 12 ans c'est
-                        12.50$
-                        CAN.
-                    </p>
-                    <div class="form__dejeuner--accept">
-                        <input type="checkbox" id="accept_dej" name="accept_dej">
-                        <label for="accept_dej">Inclure les petits déjeuners</label>
+                    <fieldset class="ctnValidation">
+                        <legend class="form__titre">
+                            <h3>Choisir le type de la chambre </h3>
+                        </legend>
+
+                        <ul>
+                            <li class="form__li">
+                                <input type="radio" name="Typechambre" id="simple" value="chambreSimple" class="screen-reader-only" required>
+                                <label for="simple" aria-label="chambre simple"> 
+                                    <figure class="form__figure--image">
+                                        <picture>
+                                            <source srcset="../images/types-de-chambre/1-lit-double.webp" type="image/webp">
+                                            <img src="../images/types-de-chambre/1-lit-double.jpg" alt="">
+                                        </picture>
+                                    </figure>
+                                    <figcaption class="chambre">
+                                        Chambre simple
+                                    </figcaption>
+                                </label>
+                            </li>
+                            <li class="form__li">
+                                <input type="radio" name="Typechambre" id="double" value="chambreDouble" class="screen-reader-only">
+                                <label for="double" aria-label="chambre double">
+                                    <figure class="form__figure--image">
+                                        <picture>
+                                            <source srcset="../images/types-de-chambre/2-lits-double.webp" type="image/webp">
+                                            <img src="../images/types-de-chambre/2-lits-double.jpg" alt="">
+                                        </picture>
+                                    </figure>
+                                    <figcaption class="chambre">
+                                        Chambre double
+                                    </figcaption>
+                                </label>
+                            </li>
+                            <li class="form__li">
+                                <input type="radio" name="Typechambre" id="familiale" value="chambreFamiliale" class="screen-reader-only">
+                                <label for="familiale" aria-label="chambre familiale">
+                                    <figure class="form__figure--image"> 
+                                        <picture>
+                                            <source srcset="../images/types-de-chambre/chambre-familiale.webp" type="image/webp">
+                                            <img src="../images/types-de-chambre/chambre-familiale.jpg" alt="">
+                                        </picture>
+                                    </figure>
+                                    <figcaption class="chambre">
+                                        Chambre familiale
+                                    </figcaption>
+                                </label>
+                            </li>
+                        </ul>
+
+                        <p class="erreur">
+                            <span>
+                                <span class="screen-reader-only">Avertissement</span>
+                                <span class="icone icone--erreur" aria-hidden="true"></span>
+                            </span>
+                            Merci de renseigner le type de la chambre.
+                        </p>
+                    </fieldset>
+                    <div class="case-a-cocher">
+                        <p> Le coût du petit déjeûner des adultes est de 25$ CAN, pour les enfants de moins de 12 ans c'est
+                            12.50$
+                            CAN.
+                        </p>
+                        <p class="form__dejeuner--accept">
+                            <input type="checkbox" id="accept_dej" name="accept_dej" aria-describedby="info-dejeuner">
+                            <label for="accept_dej">Inclure les petits déjeuners</label>
+                        </p>
                     </div>
             </fieldset>
             
-            
+        <!-- Section pour choisir l'identification'-->    
             <fieldset class="form-section form__identification">
+
                 <legend class="form__titre">
                     <h2>4. Identification</h2>
                 </legend>
+
                 <div class="form__identification--items">
-                    <label for="prenom">Prénom :</label>
-                    <input id="prenom" name="prenom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
-    
-                    <label for="nom">Nom :</label>
-                    <input id="nom" name="nom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
-    
-                    <label for="email">Email :</label>
-                    <input id="email" name="email" type="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
-    
-                    <label for="telephone">Téléphone : (exemple : 123-456-7890)</label> 
-                    <input id="telephone" name="telephone" type="tel" required maxlength="10" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="exemple : 123-456-7890">
+
+                    <div class="ctnValidation"> 
+                        <p class="form__identification--item">
+                            <label for="prenom">Prénom :</label>
+                            <input id="prenom" name="prenom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
+                        </p>
+                        <p class="erreur">
+                            <span>
+                                <span class="screen-reader-only">Avertissement</span>
+                                <span class="icone icone--erreur" aria-hidden="true"></span>
+                            </span>
+                            Votre prénom comporte des caractères interdits.
+                        </p>
+                    </div>
+                    
+                    <div class="ctnValidation">
+                        <p class="form__identification--item">
+                            <label for="nom">Nom :</label>
+                            <input id="nom" name="nom" type="text" required pattern="[a-zA-ZÀ-ÿ \-]{1,20}$">
+                        </p>
+                        <p class="erreur">
+                            <span>
+                                <span class="screen-reader-only">Avertissement</span>
+                                <span class="icone icone--erreur" aria-hidden="true"></span>
+                            </span>
+                            Votre nom comporte des caractères interdits.
+                        </p>
+                    </div>
+                    
+                    <div class="ctnValidation">
+                        <p class="form__identification--item">
+                            <label for="email">Email :</label>
+                            <input id="email" name="email" type="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+                        </p>
+                        <p class="erreur">
+                            <span>
+                                <span class="screen-reader-only">Avertissement</span>
+                                <span class="icone icone--erreur" aria-hidden="true"></span>
+                            </span>
+                            Votre email doit s'écrire comme ceci exemplemail@gmail.com.
+                        </p>
+                    </div>
+                    
+                    <div class="ctnValidation">
+                        <p class="form__identification--item">
+                            <label for="telephone">Téléphone : (exemple : 123-456-7890)</label> 
+                            <input id="telephone" name="telephone" type="tel" required maxlength="10" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="exemple : 123-456-7890">
+                        </p>
+                        <p class="erreur">
+                            <span>
+                                <span class="screen-reader-only">Avertissement pour le champ téléphone</span>
+                                <span class="icone icone--erreur" aria-hidden="true"></span>
+                            </span>
+                            Votre numéro doit s'écrire comme ceci 123-456-7890.
+                        </p>
+                    </div>
                 </div>
             </fieldset>
 
+        <!-- Section accepter la documentation -->
             <div class="form__documentation--accept">
                 <input type="checkbox" id="accept" name="accept">
                 <label for="accept">Oui, j’accepte de recevoir de la documentation…</label>
             </div>
             
-
-            <p><button type="submit">Confirmer la réservation</button></p>
+        <!-- Section pour confirmer le formulaire -->
+            <p class="form__confirmation--reservation"><button type="submit">Confirmer la réservation</button></p>
         </form>
     </main>
+
     <hr>
-    <aside>
+
+    <!-- ASIDE -->
+    <aside role="complementary">
         <h2>Nous joindre</h2>
-        <h3>aubergedujacana@gmail.com</h3>
+        <h3><a href="mailto:aubergedujacana@gmail.com">aubergedujacana@gmail.com</a></h3>
         <p>
             Pour toutes demandes d’information, ou pour faire une demande de réservation pour l’un de nos chalets,
             remplisser le formulaire ci-contre.
@@ -277,16 +427,19 @@
 
         </p>
     </aside>
-    <footer>
+
+    <!--FOOTER -->
+    <footer role="contentinfo">
         <!-- Intégrer les medias sociaux instagram et facebook + un bouton pour partager cette page -->
         <p>
             Ce site Web est un projet pédagogique réalisé par
-            <a href="">Prénom et Nom</a> et <a href="">Prénom et Nom</a> dans le cadre du cours 582-204-SF Intégration
-            II,
-            programme des <a href="">Techniques d'intégration multimédia</a>,
-            <a href="">Cégep de Sainte-Foy</a>.
+            <a href="https://github.com/alexandradias/tp2-form-a11y" target="_blank">Alexandra Dias da Rocha</a> dans le cadre du cours 582-204-SF Intégration
+            II, programme des <a href="">Techniques d'intégration multimédia</a>,
+            <a href="https://timcsf.ca" target="_blank">Cégep de Sainte-Foy</a>.
         </p>
     </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/carrousel.js"></script>
 </body>
 
 </html>
