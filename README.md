@@ -82,7 +82,7 @@ Je n'ai pas oublié d'indiquer le message lié au commit mais je pense que je de
 J'ai trouvé ce projet très enrichissant sur le plan des formulaires, cette partie me semble être très dense et longue à maitriser, pour répondre en totalité et à 100% à toutes les normes. 
 
 J'ai manqué de temps pour faire les choses précisément, et je me sens frustrée de rendre un travail à mon sens pas totalement abouti. J'aurais aimé Eve te rendre un travail en totalité responsive avec les 2 pages bien mise en forme.
-
+Je t'ai inclut le carrousel ;)
 
 J'espère malgré tout avoir répondu au mieux à ton niveau d'exigence pour ce projet TP2.
 
